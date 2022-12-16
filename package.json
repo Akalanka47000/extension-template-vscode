@@ -1,0 +1,62 @@
+{
+  "name": "template-101",
+  "displayName": "template",
+  "description": "A sample vscode extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:template-101.helloWorld"
+  ],
+  "main": "./src/index.js",
+  "contributes": {
+    "commands": [{
+      "command": "template-101.helloWorld",
+      "title": "Hello World"
+    }],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "template-101",
+          "title": "Extension 101",
+          "icon": "assets/101.svg"
+        }
+      ]
+    },
+    "views": {
+      "template-101": [
+        {
+          "id": "options",
+          "name": "Options"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "options",
+        "contents": "Welcome to extension 101!\n Click the button below to trigger a command.\n[Click Me](command:template-101.helloWorld)\n",
+        "when": "workbenchState == empty"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "pnpm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3",
+    "@vscode/test-electron": "^2.2.0"
+  }
+}
